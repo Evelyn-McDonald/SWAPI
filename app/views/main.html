@@ -1,23 +1,30 @@
 <div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
+  
+  <div>
+    <h3>People</h3>
+      <label>Search: <input ng-model="searchText"></label>
+      <ul ng-repeat="p in people | filter:searchText">
+        <button ng-click="setPerson(p)"><li><p>{{ p.name }}</p></li></button>
+      </ul>
+  </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+  <div>
+    <h3>Person</h3>
+    <p>Name: {{ person.name }}</p>
+    <p>Birth Year: {{ person.birth_year }}</p>
+    <p>Height: {{ person.height }}</p>
+    <p>Mass: {{ person.mass }}</p>
+    <p>Planet: {{ planet.name }}</p>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
+    <h3>Planet</h3>
+    <p>Planet: {{ planet.name }}</p>
+    <p>Population: {{ planet.population }}</p>
+    <p>Climate: {{ planet.climate }}</p>
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+    <h3>Others</h3>
+    <!-- <div ng-repeat="p in ">
+      <button ng-click="setPerson(p)"><p>{{ p.name }}</p></button>
+    </div>
+  </div> -->
+
 </div>
