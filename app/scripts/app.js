@@ -19,15 +19,29 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/people', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      // .when('/about', {
-      //   templateUrl: 'views/about.html',
-      //   controller: 'MainCtrl'
-      // })
+      .when('/people/:id', {
+        templateUrl: 'views/detail.html',
+        controller: 'DetailCtrl'
+      })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/people'
       });
+  })
+  .service('peopleList', function() {
+    var peopleList = [];
+    return {
+      getAll: function() {
+        return peopleList;
+      },
+      getPerson: function(i) {
+        return peopleList[i];
+      },
+      addPeople: function(list) {
+        Array.prototype.push.apply(peopleList, list);
+      }
+    };
   });

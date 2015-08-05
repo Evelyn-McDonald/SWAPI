@@ -8,8 +8,16 @@
   padding: 0.2em 0;
 }
 
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
 body {
   padding: 0;
+  background: #151515 url(../images/bg.jpg) no-repeat center center;
+  background-size: 100% auto;
+  background-attachment: fixed;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -22,7 +30,6 @@ body {
 
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
   margin-bottom: 10px;
 
   /* Make the masthead heading the same height as the navigation */
@@ -87,3 +94,165 @@ body {
     border-bottom: 0;
   }
 }
+
+
+
+/* 
+ * ------------------------------------
+ *   Custom page styles
+ * ------------------------------------
+ */
+
+h1 {
+  color: #febf00;
+  font-size: 20px;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+h2 {
+  color: #CCCCCC;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+h3 {
+  color: #ccc;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+p {
+  color: #CCCCCC;
+  font-size: 13px;
+  margin: 0;
+  line-height: 18px;
+}
+
+
+/* 
+ * ------------------------------------
+ *    Layout Styles
+ * ------------------------------------
+ */
+
+.container {
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.col-3 {
+  overflow: auto;
+  .span-1 {
+    float: left;
+    width: 30%;
+    &:first-child { margin-right: 2%; }
+  }
+  .span-2 {
+    float: left;
+    width: 67%;
+    .card {
+      float: left;
+      width: 48%;
+      &:nth-child(odd) { margin-right: 2%; }
+    }
+  }
+}
+
+
+/* 
+ * ------------------------------------
+ *    Component Styles
+ * ------------------------------------
+ */
+
+.header{
+  .logo {
+    background: transparent url(../images/title.png) no-repeat;
+    height: 113px;
+    width: 238px;
+    margin: 34px auto 70px;
+  }
+}
+
+.card {
+  cursor: pointer;
+  display: block;
+  margin-bottom: 20px;
+  padding: 18px 30px;
+  &.small {
+    background: transparent url(../images/card-bg-small.png) no-repeat;  
+    background-size: 100% 100%;
+  }
+  &.large {
+    background: transparent url(../images/card-bg-large.png) no-repeat; 
+    background-size: auto 100%;
+  }
+}
+
+input {
+  background: rgba(70,70,70,0.3) url(../images/search-icon.png) no-repeat right;
+  border: none;
+  color: #cccccc;
+  font-size: 16px;
+  margin-bottom: 20px;
+  outline: none;
+  padding: 10px 22px;
+  width: 100%;
+  -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
+  -webkit-box-shadow: inset 3px 3px 5px 0px rgba(255,255,255,0.15);
+     -moz-box-shadow: inset 3px 3px 5px 0px rgba(255,255,255,0.15);
+          box-shadow: inset 3px 3px 5px 0px rgba(255,255,255,0.15);
+}
+
+.filters {
+  border: none;
+  color: #cccccc;
+  font-size: 16px;
+  width: 100%;
+  -webkit-box-shadow: inset 3px 0px 5px 0px rgba(255,255,255,0.15);
+     -moz-box-shadow: inset 3px 0px 5px 0px rgba(255,255,255,0.15);
+          box-shadow: inset 3px 0px 5px 0px rgba(255,255,255,0.15);
+  h3 {
+    background: rgba(70,70,70,0.6);
+    padding: 10px 22px;
+    -webkit-border-top-left-radius: 8px;
+    -webkit-border-top-right-radius: 8px;
+    -moz-border-radius-topleft: 8px;
+    -moz-border-radius-topright: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    -webkit-box-shadow: inset 0px 3px 5px 0px rgba(255,255,255,0.15);
+       -moz-box-shadow: inset 0px 3px 5px 0px rgba(255,255,255,0.15);
+            box-shadow: inset 0px 3px 5px 0px rgba(255,255,255,0.15);
+  }
+  a {
+    display: block;
+    background: rgba(70,70,70,0.3);
+    border-top: 1px solid #333;
+    color: #cccccc;
+    padding: 10px 22px;
+    &:last-child {
+      -webkit-border-bottom-right-radius: 8px;
+      -webkit-border-bottom-left-radius: 8px;
+      -moz-border-radius-bottomright: 8px;
+      -moz-border-radius-bottomleft: 8px;
+      border-bottom-right-radius: 8px;
+      border-bottom-left-radius: 8px;
+    }
+    &:hover {
+      background-color: rgba(70,70,70,0.35);
+      color: #febf00;
+      cursor: pointer;
+    }
+  }
+}
+
+.back-btn {
+
+}
+
+

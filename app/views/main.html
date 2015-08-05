@@ -1,30 +1,22 @@
-<div class="jumbotron">
-  
-  <div>
-    <h3>People</h3>
-      <label>Search: <input ng-model="searchText"></label>
-      <ul ng-repeat="p in people | filter:searchText">
-        <button ng-click="setPerson(p)"><li><p>{{ p.name }}</p></li></button>
-      </ul>
-  </div>
-
-  <div>
-    <h3>Person</h3>
-    <p>Name: {{ person.name }}</p>
-    <p>Birth Year: {{ person.birth_year }}</p>
-    <p>Height: {{ person.height }}</p>
-    <p>Mass: {{ person.mass }}</p>
-    <p>Planet: {{ planet.name }}</p>
-
-    <h3>Planet</h3>
-    <p>Planet: {{ planet.name }}</p>
-    <p>Population: {{ planet.population }}</p>
-    <p>Climate: {{ planet.climate }}</p>
-
-    <h3>Others</h3>
-    <!-- <div ng-repeat="p in ">
-      <button ng-click="setPerson(p)"><p>{{ p.name }}</p></button>
+<div class="col-3">
+  <div class="span-1">
+    <input ng-model="searchText" placeholder="Search...">
+    <div class="filters">
+      <h3>Order by</h3>
+      <a href="" ng-click="orderByField='name'; reverseSort = !reverseSort">Name</a>
+      <a href="" ng-click="orderByField='birth_year'; reverseSort = !reverseSort">Birth Year</a>
+      <a href="" ng-click="orderByField='height'; reverseSort = !reverseSort">Height</a>
+      <a href="" ng-click="orderByField='mass'; reverseSort = !reverseSort">Mass</a>
     </div>
-  </div> -->
-
+  </div>
+  <div class="span-2">
+    <div ng-repeat="p in people | filter:searchText | orderBy:orderByField" >
+      <a href="#/people/{{ $index }}" class="card small">
+        <h1>{{ p.name }}</h1>
+        <p>Birth Year: {{ p.birth_year }}</p>
+        <p>Height: {{ p.height }}</p>
+        <p>Mass: {{ p.mass }}</p>
+      </a>
+    </div>
+  </div>
 </div>
