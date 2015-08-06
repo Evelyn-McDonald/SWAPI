@@ -5,12 +5,17 @@
     <div class="filters">
       <h3>Order by</h3>
       <a href="" ng-click="orderByField='name'; reverseSort = !reverseSort">Name</a>
-      <a href="" ng-click="orderByField='birth_year'; reverseSort = !reverseSort">Birth Year</a>
+      <a href="" ng-click="orderByField=orderByBirthYear; reverseSort = !reverseSort">Birth Year</a>
       <a href="" ng-click="orderByField='height'; reverseSort = !reverseSort">Height</a>
-      <a href="" ng-click="orderByField='mass'; reverseSort = !reverseSort">Mass</a>
+      <a href="" ng-click="orderByField=orderByMass; reverseSort = !reverseSort">Mass</a>
     </div>
   </div>
   <div class="span-2">
+    <div class="loader-msg" ng-if="loadingEntries">
+      <p>Loading characters...</p>
+      <div class="bar"></div>
+    </div>
+
     <div ng-repeat="p in people | filter:searchText | orderBy:orderByField" >
       <a ng-href="#/people/{{people.indexOf(p)}}" class="card small">
         <h1>{{ p.name }}</h1>

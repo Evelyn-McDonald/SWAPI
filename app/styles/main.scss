@@ -158,15 +158,19 @@ strong {
     float: left;
     width: 30%;
     margin-right: 2%;
+    margin-bottom: 20px;
+    @media screen and (max-width: 950px) { width: 48%; }
   }
   .span-2 {
     float: left;
     width: 67%;
+    @media screen and (max-width: 950px) { width: 100% }
     .card {
       float: left;
       width: 48%;
       &:nth-child(odd) { margin-right: 2%; }
       &.large { width: 100%; }
+      @media screen and (max-width: 600px) { width: 100%; }
     }
   }
 }
@@ -192,6 +196,8 @@ strong {
   display: block;
   margin-bottom: 20px;
   padding: 18px 30px;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
   &.small {
     background: transparent url(../images/card-bg-small.png) no-repeat;  
     background-size: 100% 100%;
@@ -280,6 +286,42 @@ strong {
       cursor: pointer;
     }
   }
+}
+
+.loader-msg {
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+  p { 
+    font-size: 16px; 
+    text-align: center;
+  }
+  .bar {
+    background: transparent url(../images/loading-bar.png);
+    height: 14px;
+    margin: 10px 0 20px;
+    -webkit-animation: stretch 14s;
+    animation: stretch 14s;
+  }
+}
+
+
+/* Animations */
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+
+@-webkit-keyframes stretch {
+    from { width: 0; }
+      to { width: 98%; }
+}
+@keyframes stretch {
+    from { width: 0; }
+      to { width: 98%; }
 }
 
 
