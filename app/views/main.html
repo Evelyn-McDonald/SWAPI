@@ -1,6 +1,7 @@
+<!-- Begin main view -->
 <div class="col-3">
   <div class="span-1">
-    <input ng-model="searchText" placeholder="Search...">
+    <input class="control search" ng-model="searchText" placeholder="{{ searchPlaceholder }}" ng-disabled="loadingEntries">
     <div class="filters">
       <h3>Order by</h3>
       <a href="" ng-click="orderByField='name'; reverseSort = !reverseSort">Name</a>
@@ -11,12 +12,13 @@
   </div>
   <div class="span-2">
     <div ng-repeat="p in people | filter:searchText | orderBy:orderByField" >
-      <a href="#/people/{{ $index }}" class="card small">
+      <a ng-href="#/people/{{people.indexOf(p)}}" class="card small">
         <h1>{{ p.name }}</h1>
-        <p>Birth Year: {{ p.birth_year }}</p>
-        <p>Height: {{ p.height }}</p>
-        <p>Mass: {{ p.mass }}</p>
+        <p><strong>Birth Year:</strong> {{ p.birth_year }}</p>
+        <p><strong>Height:</strong> {{ p.height }}</p>
+        <p><strong>Mass:</strong> {{ p.mass }}</p>
       </a>
     </div>
   </div>
 </div>
+<!-- End main view -->

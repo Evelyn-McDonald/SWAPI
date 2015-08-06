@@ -8,27 +8,16 @@
  * Controller of the starWarsApp
  */
 angular.module('starWarsApp')
-  .controller('MainCtrl', ['$scope', '$http', 'peopleList', function ($scope, $http, peopleList) {
+  .controller('MainCtrl', function ($scope, $rootScope) {
 
-    var personURL = 'http://swapi.co/api/people/?page=';
-    var page = 1;
-    $scope.people = peopleList.getAll();
+  	//	Set current person before switching to details view
+  	// $scope.setPerson = function(p) {
+  	// 	$rootScope.person = p;
+  	// };
 
-    // Load the list of people from API, one page at a time
-	$scope.loadPages = function() {
-		$http.get(personURL + page).
-		  then(function(response) {
-		  	var list = response.data.results;
-		  	peopleList.addPeople(list);
-		  	
-		  	if (response.data.next) {
-		  		page += 1;
-		  		$scope.loadPages();
-		  	}
+  	// $scope.getDetails = function(p) {
+  	// 	var index = $rootScope.people
+  	// }
+  	void($scope, $rootScope);
 
-		  });
-	};
-
-	$scope.loadPages();
-
-  }]);
+  });
