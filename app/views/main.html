@@ -1,6 +1,7 @@
 <!-- Begin main view -->
 <div class="col-3">
   <div class="span-1">
+    <!-- Controls (search, orderBy) for character cards -->
     <input class="control search" ng-model="searchText" placeholder="{{ searchPlaceholder }}" ng-disabled="loadingEntries">
     <div class="filters">
       <h3>Order by</h3>
@@ -11,11 +12,13 @@
     </div>
   </div>
   <div class="span-2">
+    <!-- Loading characters message -->
     <div class="loader-msg" ng-if="loadingEntries">
       <p>Loading characters...</p>
       <div class="bar"></div>
     </div>
 
+    <!-- Character cards -->
     <div ng-repeat="p in people | filter:searchText | orderBy:orderByField" >
       <a ng-href="#/people/{{people.indexOf(p)}}" class="card small">
         <h1>{{ p.name }}</h1>

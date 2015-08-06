@@ -1,8 +1,25 @@
 // bower:scss
 // endbower
 
+
+/* 
+ * ------------------------------------
+ *    Variables
+ * ------------------------------------
+ */
+
 $orange:  #febf00;
 $grey:    #cccccc;
+
+$breakpoint1:   950px;
+$breakpoint2:   600px;
+
+
+/* 
+ * ------------------------------------
+ *    Boilerplate styles
+ * ------------------------------------
+ */
 
 .browsehappy {
   margin: 0.2em 0;
@@ -159,18 +176,18 @@ strong {
     width: 30%;
     margin-right: 2%;
     margin-bottom: 20px;
-    @media screen and (max-width: 950px) { width: 48%; }
+    @media screen and (max-width: $breakpoint1) { width: 48%; }
   }
   .span-2 {
     float: left;
     width: 67%;
-    @media screen and (max-width: 950px) { width: 100% }
+    @media screen and (max-width: $breakpoint1) { width: 100% }
     .card {
       float: left;
       width: 48%;
       &:nth-child(odd) { margin-right: 2%; }
       &.large { width: 100%; }
-      @media screen and (max-width: 600px) { width: 100%; }
+      @media screen and (max-width: $breakpoint2) { width: 100%; }
     }
   }
 }
@@ -191,6 +208,7 @@ strong {
   }
 }
 
+/* Character cards */
 .card {
   cursor: pointer;
   display: block;
@@ -212,6 +230,7 @@ strong {
   }
 }
 
+/* Search and navigation controls */
 .control {
   border: none;
   color: $grey;
@@ -245,6 +264,7 @@ strong {
   }
 }
 
+/* Order By controls */
 .filters {
   border: none;
   color: $grey;
@@ -288,6 +308,7 @@ strong {
   }
 }
 
+/* Loading characters message */
 .loader-msg {
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s;
@@ -305,7 +326,12 @@ strong {
 }
 
 
-/* Animations */
+/* 
+ * ------------------------------------
+ *    Animations & Keyframes
+ * ------------------------------------
+ */
+
 @-webkit-keyframes fadeIn {
     from { opacity: 0; }
       to { opacity: 1; }

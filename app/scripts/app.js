@@ -46,7 +46,7 @@ angular
     /*  
      *  Get and display first page from the 'people' SWAPI
      *  Use counter value to calculate total # of pages
-     *  Retreive and display remaining pages asynchronous
+     *  Retreive and display remaining pages asynchronously
     */
 
     $http.get(peopleURL + 1)
@@ -66,7 +66,7 @@ angular
           ++i;
         }
 
-        // Get pages asynchronous
+        // Get pages asynchronously
         $q.all(pages).then(function(data) {
           var i = 0;
           while( i < (numPages - 1) ) {

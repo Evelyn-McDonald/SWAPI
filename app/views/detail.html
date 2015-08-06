@@ -1,0 +1,51 @@
+<!-- Begin detail view -->
+<div class="col-3">
+	<!-- Navigation control (back to list of characters) -->
+	<div class="span-1">
+		<a href="#/people" class="control back">Back to list</a>
+	</div>
+
+	<div class="span-2">
+		<!-- Loading character message -->
+	    <div class="loader-msg" ng-if="loadingEntries">
+	      <p>Loading characters...</p>
+	      <div class="bar"></div>
+	    </div>
+
+		<div class="card large">
+			<!-- Current character card -->
+			<h1>{{ person.name }}</h1>
+			<p><strong>Birth Year:</strong> {{ person.birth_year }}</p>
+			<p><strong>Height:</strong> {{ person.height }}</p>
+			<p><strong>Mass:</strong> {{ person.mass }}</p>
+			<p><strong>Gender:</strong> {{ person.gender }}</p>
+			<p><strong>Eye Color:</strong> {{ person.eye_color }}</p>
+			<p><strong>Skin Color:</strong> {{ person.skin_color }}</p>
+		</div>
+
+		<div ng-if="!loadingEntries">
+			<!-- Planet card -->
+			<h2>// &nbsp;&nbsp; Planet</h2>
+			<div class="card large">
+				<h1>{{ planet.name }}</h1>
+				<p><strong>Population:</strong> {{ planet.population }}</p>
+				<p><strong>Climate:</strong> {{ planet.climate }}</p>
+				<p><strong>Rotation Period:</strong> {{ planet.rotation_period }}</p>
+				<p><strong>Orbital Period:</strong> {{ planet.orbital_period }}</p>
+				<p><strong>Gravity:</strong> {{ planet.gravity }}</p>
+			</div>
+
+			<!-- Character cards from same planet -->
+			<h2>// &nbsp;&nbsp; Related Characters</h2>
+			<div ng-repeat="p in people | filter:person.homeworld | filter:'!'+person.name | orderBy:'name'">
+			  <a class="card small" ng-href="#/people/{{people.indexOf(p)}}">
+			  	<h1>{{ p.name }}</h1>
+			    <p><strong>Birth Year:</strong> {{ p.birth_year }}</p>
+			    <p><strong>Height:</strong> {{ p.height }}</p>
+			    <p><strong>Mass:</strong> {{ p.mass }}</p>
+			  </a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End detail view -->
